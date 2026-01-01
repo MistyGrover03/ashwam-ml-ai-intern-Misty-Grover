@@ -100,8 +100,8 @@ Example:
   "arousal_bucket": "high",
   "time_bucket": "today"
 }
-
-### Rules
+````
+ Rules
 - One object represents one fact  
 - evidence_span must be copied exactly from the journal  
 - Predictions without evidence are discarded  
@@ -119,22 +119,28 @@ Not Used
 Evaluation is strictly evidence-driven.
 
 📊 Metrics Computed
+
 Core Metrics
 - Precision
 - Recall
 - F1-score
+
 Attribute Accuracy
 - Polarity accuracy
 - Bucket accuracy (intensity/arousal + time)
+  
 Evidence Validation
 - Evidence coverage rate
 - Percentage of predictions whose evidence exists in the journal text
 
 🛡️ Hallucination Prevention
+
 The system enforces safety through:
+
 - Discarding predictions without evidence
 - Verifying evidence spans against journal text
 - Scoring only evidence-backed facts
+  
 This guarantees zero hallucinated evaluation.
 
 ## ▶️ Running the Evaluation
@@ -154,6 +160,7 @@ What This Command Does
 
 📁 Output Files
 - out/score_summary.json
+````
 Contains overall evaluation metrics:
 {
   "precision": 0.75,
@@ -163,7 +170,9 @@ Contains overall evaluation metrics:
   "bucket_accuracy": 0.70,
   "evidence_coverage": 1.0
 }
+````
 - out/per_journal_scores.jsonl
+````
 Journal-level performance breakdown:
 
 {
@@ -173,7 +182,7 @@ Journal-level performance breakdown:
   "fn": 0
 }
 
-
+````
 📉 Why Recall May Be Low
 Low recall is expected and intentional.
 - The system does not guess
